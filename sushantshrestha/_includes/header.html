@@ -1,0 +1,24 @@
+<header class="container-fluid site-header">
+  <nav class="navbar navbar-full navbar-light site-nav">
+    <div class="container">
+      <a class="navbar-brand site-nav-brand" href="{{ site.baseurl }}/">
+        <img src="/images/logo/logo_v2.png" alt="{{ site.title }}">
+      </a>
+      <ul class="nav navbar-nav hidden-md-down pull-md-right site-nav-links">
+        {% assign sections = site.frontpage_sections | sort: 'order' %}
+        {% for section in sections %}
+        {% if section.link %}
+        <li class="nav-item">
+          <a href="{{site.url}}{{ section.title | slugify | prepend: '/#' }}" class="nav-link">{{ section.title | capitalize }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        <!--  Blog Link -->
+        <li class="nav-item">
+          <a href="/news" class="nav-link">News</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
